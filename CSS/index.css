@@ -1,0 +1,75 @@
+/* Estilos de la barra lateral */
+body {
+  padding: 1.5rem;
+  background: #f1f5f9;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: midnightblue; /* Color morado azulado */
+  color: #ffffff;
+}
+
+.sidebar-icon {
+  color: #c9f7f5; /* Verde menta para el icono */
+}
+
+.sidebar .text-center h4 {
+  color: #ffffff; /* Blanco para el texto del título */
+}
+
+.sidebar .nav-link {
+  padding: 10px 20px;
+  color: #f1f5f9; /* Gris claro para los enlaces */
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #8da2fb; /* Azul claro en hover */
+  color: midnightblue; /* Azul oscuro */
+  border-radius: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.sidebar .nav-link.active {
+  background-color: #8da2fb; /* Azul claro para indicar el activo */
+  color: midnightblue;
+  border-radius: 8px;
+}
+
+.sidebar .nav-link i {
+  margin-right: 8px;
+}
+
+/* Estilo para la sección del usuario en la parte inferior de la barra lateral */
+.sidebar .mt-auto {
+  border-top: 1px solid #c9f7f5; /* Verde menta */
+  padding-top: 15px;
+}
+
+.sidebar .mt-auto img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.sidebar .mt-auto span {
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+/* Estilos para las opciones del usuario */
+.user-options a {
+  color: #f1f5f9;
+}
+
+.user-options a:hover {
+  color: #8da2fb; /* Azul claro */
+}

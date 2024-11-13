@@ -1,0 +1,64 @@
+
+/* Tarjetas */
+.bg-purple-blue {
+    background-color: #5850ec; /* Morado azulado */
+    color: #fff; /* Texto blanco */
+}
+
+.bg-light-blue {
+    background-color: #5850ec; /* Azul claro */
+    color: #fff; /* Texto blanco */
+}
+
+.bg-mint {
+    background-color: #5850ec; /* Verde menta suave */
+    color: #fff; /* Texto gris oscuro */
+}
+
+.bg-light-gray {
+    background-color: #f1f5f9; /* Gris claro */
+    color: #444444; /* Texto gris oscuro */
+}
+
+/* Encabezados de las tarjetas */
+.card-header {
+    background-color: inherit; /* Hereda el color de la tarjeta */
+    border-bottom: none; /* Elimina el borde inferior */
+    font-weight: bold;
+}
+
+/* Texto de las tarjetas */
+.card-text {
+    color: inherit; /* Hereda el color de la tarjeta */
+}
+
+/* Ajustes adicionales para la consistencia */
+.card {
+    border: none; /* Elimina bordes de las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Ajustes para el contenido principal */
+.content {
+    margin-left: 250px; /* Alinea con el sidebar */
+    padding: 20px;
+    background-color: #f1f5f9; /* Fondo principal */
+    min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+}
+
+.content h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.content h1 {
+    font-size: 32px;
+    color: #5850ec; /* Utiliza el color secundario */
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    color: #fff;
+}
