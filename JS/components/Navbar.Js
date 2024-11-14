@@ -43,7 +43,7 @@ Header.innerHTML +=
     <div class="mt-auto p-3 user-profile">
         <div class="d-flex align-items-center justify-content-between" onclick="toggleUserOptions()">
             <div class="d-flex align-items-center">
-                <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Perfil">
+                <img src="../IMG/IMG_20241008_133837_104.webp" class="rounded-circle me-2" alt="Perfil">
                 <span>Usuario</span>
             </div>
             <i class="fas fa-chevron-down ms-2" id="user-arrow"></i>
