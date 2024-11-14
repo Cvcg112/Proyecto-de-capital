@@ -24,25 +24,25 @@
 
             <div class="container my-5">
                 <div class="form-container">
-                    <form>
+                    <form id="facturaForm">
                         <div class="form-grid">
+                            <!-- Monto de Factura -->
                             <div class="form-group">
-                                <label for="transacciónID">Transacción ID</label>
-                                <select name="" id="transacciónID" class="form-control">
-                                    <option value="" selected>4646646431318</option>
-                                </select>
+                                <label for="monto">Monto:</label>
+                                <input type="number" id="monto" name="monto" class="form-control" step="0.01" required>
                             </div>
+
+                            <!-- Tipo de Transacción -->
                             <div class="form-group">
-                                <label for="partner">Partner</label>
-                                <select id="partner" class="form-control">
-                                    <option selected>Airtel</option>
-                                </select>
+                                <label for="tipoTransaccion">Tipo de Transacción:</label>
+                                <select id="tipoTransaccion" name="tipoTransaccion" class="form-control" required></select>
                             </div>
+
+                            <!-- Fecha de Pago -->
                             <div class="form-group">
-                                <label for="date">Date</label>
+                                <label for="fechaPago">Fecha de Pago:</label>
                                 <div class="input-group">
-                                    <input type="text" id="date" class="form-control"
-                                        placeholder="25-07-2018 - 25-08-2018" disabled>
+                                    <input type="date" id="fechaPago" name="fechaPago" class="form-control">
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i class="fa fa-calendar"></i>
@@ -50,36 +50,46 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Estado de Pago -->
                             <div class="form-group">
-                                <label for="mode">Mode</label>
-                                <select id="mode" class="form-control">
-                                    <option selected>Offline</option>
-                                </select>
+                                <label for="estadoPago">Estado de Pago:</label>
+                                <select id="estadoPago" name="estadoPago" class="form-control" required></select>
                             </div>
+
+                            <!-- Proveedor -->
                             <div class="form-group">
-                                <label for="status">Estatus</label>
-                                <select name="" id="status" class="form-control">
-                                    <option value="" selected>Pendiente</option>
-                                    <option value="">Pagado</option>
-                                    <option value="">Cancelado</option>
-                                </select>
+                                <label for="proveedor">Proveedor:</label>
+                                <select id="proveedor" name="proveedor" class="form-control" required></select>
                             </div>
+
+                            <!-- Descripción -->
+                            <div class="form-group">
+                                <label for="descripcion">Descripción:</label>
+                                <textarea type="text" id="descripcion" name="descripcion" class="form-control"
+                                    maxlength="500" required></textarea>
+                            </div>
+
                         </div>
+
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-search">Crear factura</button>
+                            <button type="button" onclick="" class="btn btn-search">Crear factura</button>
                             <button type="button" class="btn btn-light">Cancelar factura</button>
                         </div>
                     </form>
                 </div>
             </div>
 
+
         </div>
     </main>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="../JS/components/Navbar.Js"></script>
+
     <script src="../JS/Controlador_Capital.js"></script>
 
 </body>

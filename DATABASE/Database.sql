@@ -10,22 +10,10 @@ CREATE TABLE EstadosPago (
     Estado          VARCHAR(50) UNIQUE NOT NULL
 );
 
--- Crear tabla TipoTransaccion para manejar los tipos de transacción
+-- Crear tabla TiposTransaccion para manejar los tipos de transacción
 CREATE TABLE TiposTransaccion (
     TipoTransaccionID  INT AUTO_INCREMENT PRIMARY KEY,
     Tipo               VARCHAR(50) UNIQUE NOT NULL
-);
-
--- Crear tabla MetodosPago para los métodos de pago
-CREATE TABLE MetodosPago (
-    MetodoPagoID   INT AUTO_INCREMENT PRIMARY KEY,
-    Metodo         VARCHAR(150) UNIQUE NOT NULL
-);
-
--- Crear tabla Categorias para las categorías de facturas
-CREATE TABLE Categorias (
-    CategoriaID    INT AUTO_INCREMENT PRIMARY KEY,
-    Categoria      VARCHAR(150) UNIQUE NOT NULL
 );
 
 -- Crear tabla Capital
@@ -49,19 +37,14 @@ CREATE TABLE Proveedor (
 
 -- Crear tabla Factura
 CREATE TABLE Factura (
-    FacturaID           INT AUTO_INCREMENT PRIMARY KEY,
-    NumeroFactura       VARCHAR(100) UNIQUE NOT NULL,
+    FacturaID           BIGINT PRIMARY KEY,  -- Cambiar a BIGINT para manejar números de 13 dígitos
     FechaFactura        DATE NOT NULL,
     FechaPago           DATE,
     MontoFactura        DECIMAL(12,8) CHECK (MontoFactura >= 0),
     Descripcion         VARCHAR(500),
-    CategoriaID         INT,
-    MetodoPagoID        INT,
     EstadoPagoID        INT,
     IdCapital           INT,
     ProveedorID         INT,
-    FOREIGN KEY (CategoriaID) REFERENCES Categorias(CategoriaID),
-    FOREIGN KEY (MetodoPagoID) REFERENCES MetodosPago(MetodoPagoID),
     FOREIGN KEY (EstadoPagoID) REFERENCES EstadosPago(EstadoPagoID),
     FOREIGN KEY (IdCapital) REFERENCES Capital(IdCapital),
     FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID)
