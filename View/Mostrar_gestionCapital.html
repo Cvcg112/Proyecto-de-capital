@@ -19,68 +19,133 @@
 
     <!-- Contenido principal -->
     <main class="main-content">
-        <div class="content p-4" style="margin-left: 250px;">
-            <h2>Gestión de capital</h2>
+        <div class="jobs">
+            <div class="content p-4" style="margin-left: 250px;">
+                <h2>Gestión de capital</h2>
 
-            <div class="container my-5">
-                <div class="form-container">
-                    <form id="facturaForm">
-                        <div class="form-grid">
-                            <!-- Monto de Factura -->
-                            <div class="form-group">
-                                <label for="monto">Monto:</label>
-                                <input type="number" id="monto" name="monto" class="form-control" step="0.01" required>
-                            </div>
+                <div class="container my-5">
+                    <div class="form-container">
+                        <form id="facturaForm">
+                            <div class="form-grid">
+                                <!-- Monto de Factura -->
+                                <div class="form-group">
+                                    <label for="monto">Monto:</label>
+                                    <input type="number" id="monto" name="monto" class="form-control" step="0.01"
+                                        required>
+                                </div>
 
-                            <!-- Tipo de Transacción -->
-                            <div class="form-group">
-                                <label for="tipoTransaccion">Tipo de Transacción:</label>
-                                <select id="tipoTransaccion" name="tipoTransaccion" class="form-control" required></select>
-                            </div>
+                                <!-- Tipo de Transacción -->
+                                <div class="form-group">
+                                    <label for="tipoTransaccion">Tipo de Transacción:</label>
+                                    <select id="tipoTransaccion" name="tipoTransaccion" class="form-control"
+                                        required></select>
+                                </div>
 
-                            <!-- Fecha de Pago -->
-                            <div class="form-group">
-                                <label for="fechaPago">Fecha de Pago:</label>
-                                <div class="input-group">
-                                    <input type="date" id="fechaPago" name="fechaPago" class="form-control">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
+                                <!-- Fecha de Pago -->
+                                <div class="form-group">
+                                    <label for="fechaPago">Fecha de Pago:</label>
+                                    <div class="input-group">
+                                        <input type="date" id="fechaPago" name="fechaPago" class="form-control">
                                     </div>
                                 </div>
+
+                                <!-- Estado de Pago -->
+                                <div class="form-group">
+                                    <label for="estadoPago">Estado de Pago:</label>
+                                    <select id="estadoPago" name="estadoPago" class="form-control" required></select>
+                                </div>
+
+                                <!-- Proveedor -->
+                                <div class="form-group">
+                                    <label for="proveedor">Proveedor:</label>
+                                    <select id="proveedor" name="proveedor" class="form-control" required></select>
+                                </div>
+
+                                <!-- Descripción -->
+                                <div class="form-group">
+                                    <label for="descripcion">Descripción:</label>
+                                    <textarea type="text" id="descripcion" name="descripcion" class="form-control"
+                                        maxlength="500" required></textarea>
+                                </div>
+
                             </div>
 
-                            <!-- Estado de Pago -->
-                            <div class="form-group">
-                                <label for="estadoPago">Estado de Pago:</label>
-                                <select id="estadoPago" name="estadoPago" class="form-control" required></select>
+                            <div class="form-actions">
+                                <button type="button" onclick="registrarFactura()" class="btn btn-search">Crear
+                                    factura</button>
+                                <button type="button" class="btn btn-light">Cancelar factura</button>
                             </div>
+                        </form>
+                    </div>
+                </div>
 
-                            <!-- Proveedor -->
-                            <div class="form-group">
-                                <label for="proveedor">Proveedor:</label>
-                                <select id="proveedor" name="proveedor" class="form-control" required></select>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Numero de factura</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facturasTabla">
+                        <tr>
+                            <td colspan="5" class="text-center">Cargando proveedores...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Modal para Ver Factura -->
+                <div class="modal fade" id="CargarFactura" tabindex="-1" aria-labelledby="CargarFacturaLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="CargarFacturaLabel">Detalles de la Factura</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
-
-                            <!-- Descripción -->
-                            <div class="form-group">
-                                <label for="descripcion">Descripción:</label>
-                                <textarea type="text" id="descripcion" name="descripcion" class="form-control"
-                                    maxlength="500" required></textarea>
+                            <div class="modal-body">
+                                <form id="VerFormulario">
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Numero de factura</label>
+                                        <input type="text" id="id" name="id" class="form-control" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fechaFacturas" class="form-label">Fecha Factura</label>
+                                        <input type="date" id="fechaFacturas" name="fechaFacturas" class="form-control"
+                                            readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="montoFactura" class="form-label">Monto</label>
+                                        <input type="number" id="montoFactura" name="montoFactura" class="form-control"
+                                            step="0.01" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="descripcion" class="form-label">Descripción</label>
+                                        <textarea id="descripcion" name="descripcion" class="form-control"
+                                            maxlength="500" readonly></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="estadoPago" class="form-label">Estado de Pago</label>
+                                        <input type="text" id="estadoPago" name="estadoPago" class="form-control"
+                                            readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="proveedor" class="form-label">Proveedor</label>
+                                        <input type="text" id="proveedor" name="proveedor" class="form-control"
+                                            readonly>
+                                    </div>
+                                </form>
                             </div>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
                         </div>
-
-                        <div class="form-actions">
-                            <button type="button" onclick="" class="btn btn-search">Crear factura</button>
-                            <button type="button" class="btn btn-light">Cancelar factura</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </main>
 
