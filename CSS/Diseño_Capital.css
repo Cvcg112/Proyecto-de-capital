@@ -15,3 +15,85 @@
     gap: 20px;
     margin-top: 20px;
 }
+
+
+.jobs h2 small {
+    color: #5850ec;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: .9rem;
+}
+
+.jobs table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.jobs table thead {
+    background: #5850ec;
+}
+
+.jobs table thead th {
+    letter-spacing: normal;
+    padding: 0.75rem;
+    color: #fff;
+    text-align: left;
+}
+
+.jobs table tbody td {
+    padding: 0;
+    border: none;
+}
+
+.jobs table td div {
+    background: #fff;
+    margin: .8rem 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    font-size: .85rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.jobs table td div button {
+    background: #8da2fb;
+    color: midnightblue;
+    border: 1px solid #8da2fb;
+    padding: .5rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+}
+
+.jobs table td div button:last-child {
+    margin-right: 0;
+}
+
+span.indicator {
+    background: #c9f7f5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.jobs table tbody tr td:first-child div {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.jobs table tbody tr td:last-child div {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.jobs table thead tr th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.jobs table thead tr th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
